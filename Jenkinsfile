@@ -23,7 +23,7 @@ pipeline {
         stage('Push to Registry') {
             agent any
             steps {
-                sh 'docker tag marcoreitano/ordermf dockernexus.marcoreitano.dev/profilemf'
+                sh 'docker tag marcoreitano/profilemf dockernexus.marcoreitano.dev/profilemf'
                 withDockerRegistry([credentialsId: 'docker-registry-credentials', url: "https://dockernexus.marcoreitano.dev/"]) {
                     sh 'docker push dockernexus.marcoreitano.dev/profilemf'
                 }
