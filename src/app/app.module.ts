@@ -33,6 +33,6 @@ export class AppModule {
 
   ngDoBootstrap() {
     const profile_element = createCustomElement(ProfileComponent, {injector: this.injector});
-    customElements.define('order-profile', profile_element);
+    customElements.define('profile-login', profile_element);
   }
 }
