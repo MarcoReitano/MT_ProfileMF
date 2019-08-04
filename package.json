@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run el-build-task && npm run el-package-es5-task && npm run el-package-es2015-task",
+    "el-build-task": "ng build profile --prod --output-hashing=none",
+    "el-package-es5-task": "cat dist/profile/runtime-es5.js dist/profile/polyfills-es5.js dist/profile/main-es5.js > dist/profile-es5.js",
+    "el-package-es2015-task": "cat dist/profile/runtime-es2015.js dist/profile/polyfills-es2015.js dist/profile/main-es2015.js > dist/profile-es2015.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -15,10 +18,14 @@
     "@angular/common": "~8.0.3",
     "@angular/compiler": "~8.0.3",
     "@angular/core": "~8.0.3",
+    "@angular/elements": "^8.0.3",
     "@angular/forms": "~8.0.3",
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
+    "document-register-element": "^1.7.2",
+    "keycloak-angular": "^7.0.1",
+    "keycloak-js": "^6.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

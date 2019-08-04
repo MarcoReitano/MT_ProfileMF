@@ -1,16 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {Injector, NgModule} from '@angular/core';
+import {createCustomElement} from "@angular/elements";
+import {ProfileComponent} from "./profile/profile.component";
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 
-import { AppComponent } from './app.component';
+const keycloakService = new KeycloakService();
 
 @NgModule({
   declarations: [
-    AppComponent
+    ProfileComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    KeycloakAngularModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: KeycloakService,
+      useValue: keycloakService
+    }
+  ],
+  bootstrap: [],
+  entryComponents: [
+    ProfileComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private injector: Injector) {
+
+  }
+
+  ngDoBootstrap() {
+    const profile_element = createCustomElement(ProfileComponent, {injector: this.injector});
+    customElements.define('order-profile', profile_element);
+  }
+}
