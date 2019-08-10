@@ -1,6 +1,6 @@
 module.exports = {
   output: {
-    jsonpFunction: 'webpackJsonpAppname',
-    library: 'test'
+    jsonpFunction: 'webpackJsonpBCOrder_ProfileApp',
+    library: 'BCOrder_ProfileApp'
   }
 };
