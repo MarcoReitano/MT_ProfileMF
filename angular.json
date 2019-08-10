@@ -18,12 +18,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js",
-              "mergeStrategies": {
-                "externals": "replace"
-              }
-            },
+            //            "customWebpackConfig": {
+            //              "path": "./extra-webpack.config.js",
+            //              "mergeStrategies": {
+            //                "externals": "replace"
+            //              }
+            //            },
             "outputPath": "dist/profile",
             "index": "src/index.html",
             "main": "src/main.ts",
