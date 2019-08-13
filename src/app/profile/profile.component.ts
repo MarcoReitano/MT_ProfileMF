@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, OnDestroy, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
 import {environment} from '../../environments/environment.prod';
 import {KeycloakProfile} from 'keycloak-js';
@@ -6,8 +6,12 @@ import {KeycloakProfile} from 'keycloak-js';
 @Component({
   selector: 'app-profile',
   template: `
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <style>
+      @import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css";
+      @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css";
+      @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css";
+      @import "https://kit-free.fontawesome.com/releases/latest/css/free.min.css";
+    </style>
     <div *ngIf="!authenticated" class="buttons">
       <a class="button is-primary" (click)="signUpClick()">
         <strong>Sign up</strong>
@@ -87,18 +91,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.userProfile = results[0];
           this.token = results[1];
           const triggeredEvent = new CustomEvent('tokenChanged', {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              token: this.token,
-              userProfile: this.userProfile
-            }}
+              bubbles: true,
+              cancelable: true,
+              composed: true,
+              detail: {
+                token: this.token,
+                userProfile: this.userProfile
+              }
+            }
           );
           this.elRef.nativeElement.dispatchEvent(triggeredEvent);
         });
         this.authenticated = authenticated;
-      }}).catch(error => console.error('[ngDoBootstrap] init Keycloak failed', error));
+      }
+    }).catch(error => console.error('[ngDoBootstrap] init Keycloak failed', error));
 
     window.addEventListener('userAction', this.updateToken.bind(this));
   }
