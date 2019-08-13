@@ -6,12 +6,10 @@ import {KeycloakProfile} from 'keycloak-js';
 @Component({
   selector: 'app-profile',
   template: `
-    <style>
-      @import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css";
-      @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css";
-      @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css";
-      @import "https://kit-free.fontawesome.com/releases/latest/css/free.min.css";
-    </style>
+    @import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css";
+    @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css";
+    @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css";
+    @import "https://kit-free.fontawesome.com/releases/latest/css/free.min.css";
     <div *ngIf="!authenticated" class="buttons">
       <a class="button is-primary" (click)="signUpClick()">
         <strong>Sign up</strong>
