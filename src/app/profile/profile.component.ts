@@ -106,11 +106,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       }
     }).catch(error => console.error('[ngDoBootstrap] init Keycloak failed', error));
 
-    window.addEventListener('userAction', this.updateToken.bind(this));
+    document.addEventListener('userAction', this.updateToken.bind(this));
   }
 
   ngOnDestroy() {
-    window.removeEventListener('userAction', this.updateToken.bind(this));
+    document.removeEventListener('userAction', this.updateToken.bind(this));
   }
 
   signUpClick() {
