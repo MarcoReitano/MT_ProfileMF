@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log("Profile Auth: " + this.keycloak.authenticated);
   }
 
   ngOnDestroy() {
