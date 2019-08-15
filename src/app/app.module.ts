@@ -2,9 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from "@angular/elements";
 import {ProfileComponent} from "./profile/profile.component";
-import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+// import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 
-const keycloakService = new KeycloakService();
+// const keycloakService = new KeycloakService();
 
 @NgModule({
   declarations: [
@@ -12,14 +12,15 @@ const keycloakService = new KeycloakService();
   ],
   imports: [
     BrowserModule,
-    KeycloakAngularModule
+    // KeycloakAngularModule
   ],
-  providers: [
-    {
-      provide: KeycloakService,
-      useValue: keycloakService
-    }
-  ],
+  providers: [],
+  // providers: [
+  //   {
+  //     provide: KeycloakService,
+  //     useValue: keycloakService
+  //   }
+  // ],
   bootstrap: [],
   entryComponents: [
     ProfileComponent
