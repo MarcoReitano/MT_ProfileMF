@@ -9,7 +9,7 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angu
       @import "https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css";
       @import "https://kit-free.fontawesome.com/releases/latest/css/free.min.css";
     </style>
-    <div *ngIf="!authenticated" class="buttons">
+    <div *ngIf="!keycloak.authenticated" class="buttons">
       <a class="button is-primary" (click)="signUpClick()">
         <strong>Sign up</strong>
       </a>
