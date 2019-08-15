@@ -23,7 +23,6 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angu
         <a class="navbar-item">
           <span class="icon">
             <i class="fas fa-lg fa-user"></i>
-            Profile
           </span>
           <div>
             {{keycloak.tokenParsed.preferred_username}}
