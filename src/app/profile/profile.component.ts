@@ -18,15 +18,15 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angu
       </a>
     </div>
 
-    <div *ngIf="authenticated">
+    <div *ngIf="keycloak.authenticated">
       <div class="navbar-item has-dropdown is-hoverable">
-
         <a class="navbar-item">
           <span class="icon">
             <i class="fas fa-lg fa-user"></i>
+            Profile
           </span>
-          <div *ngIf="userProfile">
-            {{userProfile.username}}
+          <div>
+            {{keycloak.tokenParsed.preferred_username}}
           </div>
         </a>
 
